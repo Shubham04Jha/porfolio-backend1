@@ -9,10 +9,13 @@ const app = express();
 app.use(cors()); 
 app.use(express.json());
 
+const map = new Map<string, number>();
+
 app.get('/codingActivity',async (req,res)=>{
     const data  = await codingActivity(); // data: {date: string, count: number}
     res.json({data});
 })
 
-const map = new Map<string, number>();
+app.listen(3000,()=>console.log('server listening on port 3000')); // keeping app.ts for local testing
+
 
