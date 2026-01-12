@@ -14,8 +14,12 @@ while github just gives it to you.
 
 
 # todos
-1) update cors policy after hosting frontend.
+2) cache response. (once per 30 mins should be fine ig. if I get the continuous traffic then I might consider reducing it)
+3) secret-header 
 
+
+# done
+1) update cors policy after hosting frontend. (not needed)
 
 # important
 check the type of coding activity required by the frontend.
@@ -50,10 +54,13 @@ query from start to the new start?
 
 
 considerations...
-people want to see what you were doing since one year... do they have to do it from the same date previous
+1) people want to see what you were doing since one year... do they have to do it from the same date 
+previous
 year? perhaps yes. but mostly no.
 so starting from 364 days does sound correct but then it will be easier to notice.
 and the method that will require the least code without wasting the api resources will be ostrich method and just rely on coddforces activity for that boundary case.
+
+2) some basic form of rate limiting| caching| secret-header is required. 
 
 Used Github's GraphQL api.
 
