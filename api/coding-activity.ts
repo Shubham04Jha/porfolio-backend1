@@ -8,7 +8,8 @@ const CACHE_TTL = 60 * 60 * 1000;
 let globalInFlightPromise: Promise<any>|null = null;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    if(req.headers['secret-header']!=process.env.SECRET_HEADER_KEY){
+    const reqVerificationHeader = req.headers['verification-header'];
+    if(!reqVerificationHeader||reqVerificationHeader!=process.env.SECRET_HEADER_KEY){
         return res.status(401).end();
     }
     const now = Date.now();
